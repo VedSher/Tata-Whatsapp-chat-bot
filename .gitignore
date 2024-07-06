@@ -3,6 +3,5 @@ __pycache__/
 .venv/
 venv/
 chrome-win64/
-get-pip.py
 python-3.10.10-amd64.exe
 chrome-win64/

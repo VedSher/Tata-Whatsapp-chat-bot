@@ -31,20 +31,19 @@ def msg():
 
         # Use a different method to locate the text box
         print(f"Sending message '{message}' {count} times...")
+        time.sleep(3)
         for _ in range(count):
             whatsapp.type_message(message)
             send_button = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.XPATH, f'//span[@data-icon="send"]'))
             )
             send_button.click()
-            send_button1 = whatsapp._find_element('//button[@aria-label="Send"]')
-            send_button1.click()
-            time.sleep(1)  # Add a slight delay between messages if necessary
+            time.sleep(3)  # Add a slight delay between messages if necessary
 
-        if whatsapp.is_last_message_sent():
-            print(f"Message '{message}' sent {count} times to '{name}'.")
-        else:
-            print(f"Failed to send message '{message}' to '{name}'.")
+        # if whatsapp.is_last_message_sent():
+        #     print(f"Message '{message}' sent {count} times to '{name}'.")
+        # else:
+        #     print(f"Failed to send message '{message}' to '{name}'.")
 
     except TimeoutException as e:
         print(f"Timeout Error: {e} - Could not locate the element within the given time.")
